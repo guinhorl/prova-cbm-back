@@ -4,7 +4,7 @@ Para concorrer a vaga o candidato terá que desenvolver uma aplicação api-rest
 ## Em qualquer framework/linguagem.
 
 
-# Tecnologias Recomendadas
+### Tecnologias Recomendadas
 - PHP
 - Laravel
 - Cakephp
