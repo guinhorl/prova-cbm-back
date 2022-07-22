@@ -1,0 +1,61 @@
+version: '3'
+
+networks:
+  laravel:
+
+services:
+  nginx:
+    image: nginx:stable-alpine
+    container_name: nginx_laravel
+    ports:
+      - "8000:80"
+    volumes:
+      - .:/var/www/html
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
+      - mysql
+    networks:
+      - laravel
+
+  mysql:
+    image: mysql:5.7.29
+    container_name: mysql_laravel
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "9306:3306"
+    environment:
+      MYSQL_DATABASE: prova_cbm
+      MYSQL_USER: prova_cbm
+      MYSQL_PASSWORD: 123456789
+      MYSQL_ROOT_PASSWORD: 123456789
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    networks:
+      - laravel
+    volumes:
+      - ./mysql:/var/lib/mysql
+
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: php_laravel
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "9004:9004"
+    networks:
+      - laravel
+
+  composer:
+    image: composer:latest
+    container_name: composer_laravel
+    volumes:
+      - .:/var/www/html
+    working_dir: /var/www/html
+    depends_on:
+      - php
+    networks:
+      - laravel
