@@ -4,15 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PessoaRequest;
 use App\Models\Pessoa;
+use App\Services\Pessoa\Interfaces\IPessoaService;
+use App\Services\Pessoa\PessoaService;
 use Exception;
 use Illuminate\Http\Request;
-use IPessoaService;
 use OpenApi\Annotations as OA;
-use PessoaService;
+
 
 class PessoaController extends Controller
 {
-    private IPessoaService $service;
+   private IPessoaService $service;
 
     public function __construct()
     {
@@ -28,14 +29,11 @@ class PessoaController extends Controller
     }
 
     /**
-     * @param PessoaRequest $request
-     * @return string|void
      * @throws Exception
      */
     public function store(PessoaRequest $request)
     {
         try {
-            dd($request);
             return $this->service->store($request->all());
         }catch (Exception $e){
             throw new Exception('Erro ao cadastrar a pessoa! '. $e->getMessage());

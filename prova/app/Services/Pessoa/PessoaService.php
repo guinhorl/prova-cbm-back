@@ -1,7 +1,12 @@
 <?php
 
+namespace App\Services\Pessoa;
+
 use App\Models\Pessoa;
+use App\Services\Pessoa\Interfaces\IPessoaService;
+use Exception;
 use Illuminate\Support\Facades\DB;
+
 
 class PessoaService implements IPessoaService
 {
@@ -16,5 +21,4 @@ class PessoaService implements IPessoaService
             return 'Mensagem: ' .$errors->getMessage();
         }
     }
-
 }
