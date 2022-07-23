@@ -113,6 +113,12 @@
       <path value="$PROJECT_DIR$/prova/vendor/psr/event-dispatcher" />
       <path value="$PROJECT_DIR$/prova/vendor/psr/container" />
       <path value="$PROJECT_DIR$/prova/vendor/composer" />
+      <path value="$PROJECT_DIR$/prova/vendor/zircote/swagger-php" />
+      <path value="$PROJECT_DIR$/prova/vendor/darkaonline/l5-swagger" />
+      <path value="$PROJECT_DIR$/prova/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/prova/vendor/swagger-api/swagger-ui" />
+      <path value="$PROJECT_DIR$/prova/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/prova/vendor/psr/cache" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />
