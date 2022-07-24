@@ -10,6 +10,8 @@ class Pessoa extends Model
     use HasFactory;
     protected $table = 'perfis';
     protected $fillable = [
+        'tipos_sanguineo_id',
+        'signo_id',
         'cpf',
         'nome',
         'data_nascimento',
