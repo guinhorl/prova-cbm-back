@@ -9,7 +9,4 @@ class Signo extends Model
 {
     use HasFactory;
     protected $table = 'signos';
-    protected $fillable = [
-        'nome'
-    ];
 }
