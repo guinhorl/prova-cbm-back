@@ -48,23 +48,18 @@ class PessoaController extends Controller
         }
     }
 
-    public function edit(Pessoa $pessoa)
-    {
-        //
-    }
-
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Pessoa  $pessoa
-     * @return \Illuminate\Http\Response
+     * @throws Exception
      */
-    public function update(Request $request, Pessoa $pessoa)
+    public function update(Request $request, $id)
     {
-        //
-    }
+        try {
+            return $this->service->update($request->all(), $id);
+        } catch (\Exception $e){
+            throw new Exception('Erro na edição! ' . $e->getMessage());
+        }
 
+    }
 
     /**
      * @throws Exception

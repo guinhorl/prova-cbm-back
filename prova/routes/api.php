@@ -30,5 +30,6 @@ Route::prefix('v0')->group(function () {
     Route::get('perfis', [PessoaController::class, 'index']);
     Route::get('perfis/{id}', [PessoaController::class, 'show']);
     Route::delete('perfis/{id}', [PessoaController::class, 'destroy']);
+    Route::put('perfis/{id}', [PessoaController::class, 'update']);
     Route::post('perfis', [PessoaController::class, 'store']);
 });

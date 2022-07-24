@@ -45,6 +45,27 @@ class PessoaService implements IPessoaService
         Pessoa::destroy($id);
     }
 
+    public function update(array $request, int $id)
+    {
+        DB::beginTransaction();
+        try {
+            $perfil = Pessoa::where('id',$id)->update([
+                'tipos_sanguineo_id'  => $request['tipos_sanguineo_id'],
+                'signo_id' => $request['signo_id'],
+                'cpf' => $request['cpf'],
+                'nome' => $request['nome'],
+                'data_nascimento' => $request['data_nascimento'],
+                'email' => $request['email'],
+                'telefone' => $request['telefone'],
+                'resumo'      => $request['resumo']
+            ]);
+            DB::commit();
+            return $perfil;
+        }catch (Exception $errors){
+            DB::rollBack();
+            return 'Mensagem: ' .$errors->getMessage();
+        }
+    }
 
     private function mapearIdPerfil($id, $tipo)
     {

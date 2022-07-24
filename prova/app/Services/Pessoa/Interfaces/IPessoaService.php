@@ -7,4 +7,5 @@ interface IPessoaService
     public function store(array $request);
     public function show(int $id);
     public function destroy(int $id);
+    public function update(array $request, int $id);
 }
