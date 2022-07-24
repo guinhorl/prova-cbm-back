@@ -14,8 +14,9 @@ class PessoaService implements IPessoaService
     {
         DB::beginTransaction();
         try {
-            Pessoa::create($request);
+           $perfil = Pessoa::create($request);
             DB::commit();
+            return $perfil;
         }catch (Exception $errors){
             DB::rollBack();
             return 'Mensagem: ' .$errors->getMessage();
