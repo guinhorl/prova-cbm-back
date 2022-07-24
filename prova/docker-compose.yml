@@ -24,7 +24,7 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - "9306:3306"
+      - "3306:3306"
     environment:
       MYSQL_DATABASE: prova_cbm
       MYSQL_USER: prova_cbm
