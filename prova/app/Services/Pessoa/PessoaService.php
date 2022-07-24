@@ -34,6 +34,12 @@ class PessoaService implements IPessoaService
         }
     }
 
+    public function show(int $id)
+    {
+        $perfil = Pessoa::find($id);
+        return $perfil;
+    }
+
     private function mapearIdPerfil($id, $tipo)
     {
         $aux = array();

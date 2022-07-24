@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\GetPerfilRequest;
 use App\Http\Requests\PessoaRequest;
 use App\Models\Pessoa;
 use App\Services\Pessoa\Interfaces\IPessoaService;
@@ -35,17 +36,18 @@ class PessoaController extends Controller
         }
     }
 
-    public function show(Pessoa $pessoa)
+    /**
+     * @throws Exception
+     */
+    public function show($id)
     {
-        //
+        try {
+            return $this->service->show($id);
+        }catch (Exception $e){
+            throw new Exception('Erro ao exibir! ' . $e->getMessage());
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Pessoa  $pessoa
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Pessoa $pessoa)
     {
         //
