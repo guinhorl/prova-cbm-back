@@ -22,15 +22,10 @@ class PessoaController extends Controller
 
     public function index()
     {
-//        $pessoa = Pessoa::all();
-//
-//        return view('index', ['enderecos' => $pessoa]);
-        return response()->json('ok');
+        $pessoa = Pessoa::all();
+        return $pessoa;
     }
 
-    /**
-     * @throws Exception
-     */
     public function store(PessoaRequest $request)
     {
         try {
@@ -40,12 +35,6 @@ class PessoaController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Pessoa  $pessoa
-     * @return \Illuminate\Http\Response
-     */
     public function show(Pessoa $pessoa)
     {
         //
