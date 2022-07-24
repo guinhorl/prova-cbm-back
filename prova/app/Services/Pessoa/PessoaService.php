@@ -40,6 +40,12 @@ class PessoaService implements IPessoaService
         return $perfil;
     }
 
+    public function destroy(int $id)
+    {
+        Pessoa::destroy($id);
+    }
+
+
     private function mapearIdPerfil($id, $tipo)
     {
         $aux = array();

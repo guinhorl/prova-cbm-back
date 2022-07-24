@@ -65,14 +65,16 @@ class PessoaController extends Controller
         //
     }
 
+
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Pessoa  $pessoa
-     * @return \Illuminate\Http\Response
+     * @throws Exception
      */
-    public function destroy(Pessoa $pessoa)
+    public function destroy(int $id)
     {
-        //
+        try {
+            return $this->service->destroy($id);
+        }catch (\Exception $e){
+            throw new Exception('Erro ao excluir perfil! ' . $e->getMessage());
+        }
     }
 }

@@ -28,6 +28,7 @@ Route::prefix('v0')->group(function () {
     Route::get('instituicoes', [InstituicaoController::class, 'index']);
     Route::get('competencias', [CompetenciaController::class, 'index']);
     Route::get('perfis', [PessoaController::class, 'index']);
-    Route::get('perfil/{id}', [PessoaController::class, 'show']);
+    Route::get('perfis/{id}', [PessoaController::class, 'show']);
+    Route::delete('perfis/{id}', [PessoaController::class, 'destroy']);
     Route::post('perfis', [PessoaController::class, 'store']);
 });
