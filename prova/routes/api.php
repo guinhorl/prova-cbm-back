@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InstituicaoController;
 use App\Http\Controllers\PessoaController;
 use App\Http\Controllers\SignoController;
 use App\Http\Controllers\TipoSanguineoController;
@@ -23,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('v0')->group(function () {
     Route::get('signos', [SignoController::class, 'index']);
     Route::get('tipo-sanguineos', [TipoSanguineoController::class, 'index']);
+    Route::get('instituicoes', [InstituicaoController::class, 'index']);
     Route::get('pessoa', [PessoaController::class, 'index']);
     Route::post('pessoa', [PessoaController::class, 'store']);
 });
