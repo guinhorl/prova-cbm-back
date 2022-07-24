@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PessoaController;
+use App\Http\Controllers\SignoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 Route::prefix('v0')->group(function () {
+    Route::get('signos', [SignoController::class, 'index']);
     Route::get('pessoa', [PessoaController::class, 'index']);
     Route::post('pessoa', [PessoaController::class, 'store']);
 });
