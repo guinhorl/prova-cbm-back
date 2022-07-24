@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompetenciaController;
 use App\Http\Controllers\InstituicaoController;
 use App\Http\Controllers\PessoaController;
 use App\Http\Controllers\SignoController;
@@ -25,6 +26,7 @@ Route::prefix('v0')->group(function () {
     Route::get('signos', [SignoController::class, 'index']);
     Route::get('tipo-sanguineos', [TipoSanguineoController::class, 'index']);
     Route::get('instituicoes', [InstituicaoController::class, 'index']);
-    Route::get('pessoa', [PessoaController::class, 'index']);
-    Route::post('pessoa', [PessoaController::class, 'store']);
+    Route::get('competencias', [CompetenciaController::class, 'index']);
+    Route::get('perfis', [PessoaController::class, 'index']);
+    Route::post('perfis', [PessoaController::class, 'store']);
 });
