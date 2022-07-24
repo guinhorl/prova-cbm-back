@@ -12,7 +12,7 @@ class FormacaoService implements IFormacaoService
     {
         try {
             $da_formacao = (new Formacao());
-            foreach ($formacoes as $formacao){
+            foreach ($formacoes as $formacao) {
                 $da_formacao->nome = $formacao['nome'];
                 $da_formacao->perfil_id = $formacao['perfil_id'];
                 $da_formacao->instituicao_id = $formacao['instituicao_id'];
