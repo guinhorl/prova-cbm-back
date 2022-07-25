@@ -11,7 +11,7 @@ class SignoController extends Controller
     /**
      * Lista de Signos.
      * @OA\Get (
-     *     path="/api/v0/instituicoes/",
+     *     path="/api/v0/signos/",
      *     tags={"Index"},
      *     @OA\Response(
      *         response=200,
