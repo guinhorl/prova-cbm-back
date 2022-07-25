@@ -1,0 +1,197 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Prova Programador CBM Api",
+        "description": "Lista de endpoints para cadastro e listagem de perfil",
+        "version": "2.0"
+    },
+    "paths": {
+        "/api/v0/perfis/": {
+            "get": {
+                "tags": [
+                    "Index"
+                ],
+                "summary": "Lista todos os perfis cadastrados.",
+                "operationId": "f559a7b9ea67770898133f58d06611fe",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "number",
+                                                        "example": "1"
+                                                    },
+                                                    "tipos_sanguineo_id": {
+                                                        "type": "number",
+                                                        "example": "2"
+                                                    },
+                                                    "signo_id": {
+                                                        "type": "number",
+                                                        "example": "3"
+                                                    },
+                                                    "cpf": {
+                                                        "type": "number",
+                                                        "example": "12345678912"
+                                                    },
+                                                    "nome": {
+                                                        "type": "string",
+                                                        "example": "Wagner Ramos Lima"
+                                                    },
+                                                    "email": {
+                                                        "type": "string",
+                                                        "example": "wagner@yahoo.com.br"
+                                                    },
+                                                    "telefone": {
+                                                        "type": "string",
+                                                        "example": "79999590102"
+                                                    },
+                                                    "resumo": {
+                                                        "type": "string",
+                                                        "example": "Exemplo de texto para resumo."
+                                                    },
+                                                    "data_nascimento": {
+                                                        "type": "string",
+                                                        "example": "1986-06-14"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "example": "2021-12-11T09:25:53.000000Z"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "example": "2021-12-11T09:25:53.000000Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v0/perfis/{id}": {
+            "get": {
+                "tags": [
+                    "Index"
+                ],
+                "summary": "Pega um perfil específico",
+                "operationId": "b6e38c27eca0277aa1aec96f782e7536",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "tipos_sanguineo_id": {
+                                            "type": "number",
+                                            "example": "2"
+                                        },
+                                        "signo_id": {
+                                            "type": "number",
+                                            "example": "3"
+                                        },
+                                        "cpf": {
+                                            "type": "string",
+                                            "example": "content"
+                                        },
+                                        "nome": {
+                                            "type": "string",
+                                            "example": "Wagner Ramos Lima"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "example": "wagner@yahoo.com.br"
+                                        },
+                                        "telefone": {
+                                            "type": "string",
+                                            "example": "79999590102"
+                                        },
+                                        "resumo": {
+                                            "type": "string",
+                                            "example": "Exemplo de texto para resumo."
+                                        },
+                                        "data_nascimento": {
+                                            "type": "string",
+                                            "example": "1986-06-14"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "example": "2021-12-11T09:25:53.000000Z"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "example": "2021-12-11T09:25:53.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Index"
+                ],
+                "summary": "Delete um perfil",
+                "operationId": "cc4a3f003b09c402f78e794786cf3a10",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "msg": {
+                                            "type": "string",
+                                            "example": "Deletadp com sucesso"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
