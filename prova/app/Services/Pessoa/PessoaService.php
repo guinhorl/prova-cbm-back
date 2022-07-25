@@ -42,7 +42,8 @@ class PessoaService implements IPessoaService
 
     public function destroy(int $id)
     {
-        Pessoa::destroy($id);
+        if (Pessoa::destroy($id))
+            return 'Deletado com sucesso!';
     }
 
     public function update(array $request, int $id)
