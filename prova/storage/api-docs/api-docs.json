@@ -6,6 +6,45 @@
         "version": "2.0"
     },
     "paths": {
+        "/api/v0/competencias/": {
+            "get": {
+                "tags": [
+                    "Index"
+                ],
+                "summary": "Lista de Competencias.",
+                "operationId": "0e37e50ad2cbcce644f2a633b15a9f30",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "number",
+                                                        "example": "1"
+                                                    },
+                                                    "nome": {
+                                                        "type": "string",
+                                                        "example": "palavra"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/v0/perfis/": {
             "get": {
                 "tags": [
@@ -86,26 +125,12 @@
                 "tags": [
                     "Index"
                 ],
-                "summary": "Create Perfil",
+                "summary": "Criar Perfil",
                 "operationId": "44b6ab8046eb0aa8056858f990f856d3",
                 "requestBody": {
                     "content": {
                         "application/json": {
                             "schema": {
-                                "properties": {
-                                    "": {
-                                        "properties": {
-                                            "title": {
-                                                "type": "string"
-                                            },
-                                            "content": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "type": "object"
-                                    }
-                                },
-                                "type": "object",
                                 "example": {
                                     "tipos_sanguineo_id": 6,
                                     "signo_id": 2,
@@ -243,6 +268,99 @@
                         }
                     }
                 ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "tipos_sanguineo_id": {
+                                            "type": "number",
+                                            "example": "2"
+                                        },
+                                        "signo_id": {
+                                            "type": "number",
+                                            "example": "3"
+                                        },
+                                        "cpf": {
+                                            "type": "string",
+                                            "example": "content"
+                                        },
+                                        "nome": {
+                                            "type": "string",
+                                            "example": "Wagner Ramos Lima"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "example": "wagner@yahoo.com.br"
+                                        },
+                                        "telefone": {
+                                            "type": "string",
+                                            "example": "79999590102"
+                                        },
+                                        "resumo": {
+                                            "type": "string",
+                                            "example": "Exemplo de texto para resumo."
+                                        },
+                                        "data_nascimento": {
+                                            "type": "string",
+                                            "example": "1986-06-14"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "example": "2021-12-11T09:25:53.000000Z"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "example": "2021-12-11T09:25:53.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Index"
+                ],
+                "summary": "Edite Perfil",
+                "operationId": "d80f0c7f8befbf8cb55e7f9e99e1b2b3",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "example": {
+                                    "tipos_sanguineo_id": 6,
+                                    "signo_id": 2,
+                                    "cpf": 2255881568,
+                                    "nome": "João",
+                                    "data_nascimento": "1986-06-14",
+                                    "email": "joao@yahoo.com",
+                                    "telefone": 79988552233,
+                                    "resumo": "texto"
+                                }
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "200": {
                         "description": "success",
