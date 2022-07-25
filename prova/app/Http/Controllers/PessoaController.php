@@ -103,7 +103,7 @@ class PessoaController extends Controller
     }
 
     /**
-     * Create Perfil
+     * Criar Perfil
      * @OA\Post (
      *     path="/api/v0/perfis",
      *     tags={"Index"},
