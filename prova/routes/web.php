@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    return view('index');
-//});
-Route::get('/', [PessoaController::class, 'index']);
+Route::get('/', function () {
+    return view('index');
+});

@@ -30,7 +30,7 @@
                                                     },
                                                     "nome": {
                                                         "type": "string",
-                                                        "example": "palavra"
+                                                        "example": "Competencia"
                                                     }
                                                 },
                                                 "type": "object"
@@ -69,7 +69,7 @@
                                                     },
                                                     "nome": {
                                                         "type": "string",
-                                                        "example": "palavra"
+                                                        "example": "Instituição"
                                                     }
                                                 },
                                                 "type": "object"
@@ -485,6 +485,84 @@
                                         "msg": {
                                             "type": "string",
                                             "example": "Deletadp com sucesso"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v0/signos/": {
+            "get": {
+                "tags": [
+                    "Index"
+                ],
+                "summary": "Lista de Signos.",
+                "operationId": "846f607d6c5cfa95606a006766efffc5",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "number",
+                                                        "example": "1"
+                                                    },
+                                                    "nome": {
+                                                        "type": "string",
+                                                        "example": "Signo"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v0/tipo-sanguineos/": {
+            "get": {
+                "tags": [
+                    "Index"
+                ],
+                "summary": "Lista de Tipos Sanguineos.",
+                "operationId": "03e9ea7e8674222578ebee7e1e901b95",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "number",
+                                                        "example": "1"
+                                                    },
+                                                    "nome": {
+                                                        "type": "string",
+                                                        "example": "Tipo Sanguineo"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
                                         }
                                     },
                                     "type": "object"
