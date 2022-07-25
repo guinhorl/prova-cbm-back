@@ -45,6 +45,45 @@
                 }
             }
         },
+        "/api/v0/instituicoes/": {
+            "get": {
+                "tags": [
+                    "Index"
+                ],
+                "summary": "Lista de Instituicoes.",
+                "operationId": "d98e62c58c20e6eb59e89a7a80df6381",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "number",
+                                                        "example": "1"
+                                                    },
+                                                    "nome": {
+                                                        "type": "string",
+                                                        "example": "palavra"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/v0/perfis/": {
             "get": {
                 "tags": [

@@ -30,7 +30,7 @@ class CompetenciaController extends Controller
      *                     @OA\Property(
      *                         property="nome",
      *                         type="string",
-     *                         example="palavra"
+     *                         example="Competencia"
      *                     )
      *                 )
      *             )

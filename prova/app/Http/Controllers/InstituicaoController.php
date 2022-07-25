@@ -29,7 +29,7 @@ class InstituicaoController extends Controller
      *                     @OA\Property(
      *                         property="nome",
      *                         type="string",
-     *                         example="palavra"
+     *                         example="Instituição"
      *                     )
      *                 )
      *             )
