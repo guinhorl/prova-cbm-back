@@ -102,6 +102,96 @@ class PessoaController extends Controller
         return $pessoa;
     }
 
+    /**
+     * Create Perfil
+     * @OA\Post (
+     *     path="/api/v0/perfis",
+     *     tags={"Index"},
+     *     @OA\RequestBody(
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                 @OA\Property(
+     *                      type="object",
+     *                      @OA\Property(
+     *                          property="title",
+     *                          type="string"
+     *                      ),
+     *                      @OA\Property(
+     *                          property="content",
+     *                          type="string"
+     *                      )
+     *                 ),
+     *                 example={
+     *                      "tipos_sanguineo_id": 6,
+     *                      "signo_id": 2,
+     *                      "cpf": 2255881568,
+     *                      "nome": "João",
+     *                      "data_nascimento": "1986-06-14",
+     *                      "email": "joao@yahoo.com",
+     *                      "formacao": {
+     *                          {
+     *                            "instituicao_id": 1,
+     *                            "nome": "SI"
+     *                          },
+     *                          {
+     *                            "instituicao_id": 1,
+     *                            "nome": "GTI"
+     *                          }
+     *                      },
+     *                      "experiencia": {
+     *                          {
+     *                            "empresa": "Google",
+     *                            "inicio": "2000-06-14",
+     *                            "fim": "2010-06-14",
+     *                            "atual_trabalho": "STT",
+     *                            "cargo": "Programador"
+     *                          },
+     *                          {
+     *                            "empresa": "FANESE",
+     *                            "inicio": "2010-06-14",
+     *                            "fim": "2020-06-14",
+     *                            "atual_trabalho": "STT",
+     *                            "cargo": "Programador"
+     *                          }
+     *                      },
+     *                      "competencia": {
+     *                           "competencia_id": 1,
+     *                           "perfil_id": 1
+     *                      },
+     *                      "telefone": 79988496433,
+     *                      "resumo": "texto"
+     *               }
+     *             )
+     *         )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="success",
+     *          @OA\JsonContent(
+     *              @OA\Property(property="id", type="number", example=1),
+     *              @OA\Property(property="tipos_sanguineo_id", type="number", example="2"),
+     *              @OA\Property(property="signo_id", type="number", example="3"),
+     *              @OA\Property(property="cpf", type="string", example="content"),
+     *              @OA\Property(property="nome", type="string", example="Wagner Ramos Lima"),
+     *              @OA\Property(property="email", type="string", example="wagner@yahoo.com.br"),
+     *              @OA\Property(property="telefone", type="string", example="79999590102"),
+     *              @OA\Property(property="resumo", type="string", example="Exemplo de texto para resumo."),
+     *              @OA\Property(property="data_nascimento", type="string", example="1986-06-14"),
+     *              @OA\Property(property="updated_at", type="string", example="2021-12-11T09:25:53.000000Z"),
+     *              @OA\Property(property="created_at", type="string", example="2021-12-11T09:25:53.000000Z")
+     *         )
+     *      ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="invalid",
+     *          @OA\JsonContent(
+     *              @OA\Property(property="msg", type="string", example="fail"),
+     *          )
+     *      )
+     * )
+     * @throws Exception
+     */
     public function store(PessoaRequest $request)
     {
         try {
