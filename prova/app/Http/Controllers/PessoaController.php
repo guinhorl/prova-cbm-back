@@ -111,17 +111,6 @@ class PessoaController extends Controller
      *         @OA\MediaType(
      *             mediaType="application/json",
      *             @OA\Schema(
-     *                 @OA\Property(
-     *                      type="object",
-     *                      @OA\Property(
-     *                          property="title",
-     *                          type="string"
-     *                      ),
-     *                      @OA\Property(
-     *                          property="content",
-     *                          type="string"
-     *                      )
-     *                 ),
      *                 example={
      *                      "tipos_sanguineo_id": 6,
      *                      "signo_id": 2,
@@ -242,13 +231,57 @@ class PessoaController extends Controller
     }
 
     /**
-     * @throws Exception
+     * Edite Perfil
+     * @OA\Put (
+     *     path="/api/v0/perfis/{id}",
+     *     tags={"Index"},
+     *     @OA\Parameter(
+     *         in="path",
+     *         name="id",
+     *         required=true,
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\RequestBody(
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                 example={
+     *                      "tipos_sanguineo_id": 6,
+     *                      "signo_id": 2,
+     *                      "cpf": 2255881568,
+     *                      "nome": "João",
+     *                      "data_nascimento": "1986-06-14",
+     *                      "email": "joao@yahoo.com",
+     *                      "telefone": 79988552233,
+     *                      "resumo": "texto"
+     *                }
+     *             )
+     *         )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="success",
+     *          @OA\JsonContent(
+     *              @OA\Property(property="id", type="number", example=1),
+     *              @OA\Property(property="tipos_sanguineo_id", type="number", example="2"),
+     *              @OA\Property(property="signo_id", type="number", example="3"),
+     *              @OA\Property(property="cpf", type="string", example="content"),
+     *              @OA\Property(property="nome", type="string", example="Wagner Ramos Lima"),
+     *              @OA\Property(property="email", type="string", example="wagner@yahoo.com.br"),
+     *              @OA\Property(property="telefone", type="string", example="79999590102"),
+     *              @OA\Property(property="resumo", type="string", example="Exemplo de texto para resumo."),
+     *              @OA\Property(property="data_nascimento", type="string", example="1986-06-14"),
+     *              @OA\Property(property="updated_at", type="string", example="2021-12-11T09:25:53.000000Z"),
+     *              @OA\Property(property="created_at", type="string", example="2021-12-11T09:25:53.000000Z")
+     *          )
+     *      )
+     * )
      */
     public function update(Request $request, $id)
     {
         try {
             return $this->service->update($request->all(), $id);
-        } catch (\Exception $e){
+        } catch (Exception $e){
             throw new Exception('Erro na edição! ' . $e->getMessage());
         }
 

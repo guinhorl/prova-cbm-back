@@ -61,7 +61,7 @@ class PessoaService implements IPessoaService
                 'resumo'      => $request['resumo']
             ]);
             DB::commit();
-            return $perfil;
+            return Pessoa::find($id);
         }catch (Exception $errors){
             DB::rollBack();
             return 'Mensagem: ' .$errors->getMessage();
