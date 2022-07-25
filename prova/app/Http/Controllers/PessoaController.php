@@ -21,6 +21,81 @@ class PessoaController extends Controller
         $this->service = new PessoaService();
     }
 
+    /**
+     * Lista todos os perfis cadastrados.
+     * @OA\Get (
+     *     path="/api/v0/perfis/",
+     *     tags={"Index"},
+     *     @OA\Response(
+     *         response=200,
+     *         description="success",
+     *         @OA\JsonContent(
+     *             @OA\Property(
+     *                 type="array",
+     *                 property="rows",
+     *                 @OA\Items(
+     *                     type="object",
+     *                     @OA\Property(
+     *                         property="id",
+     *                         type="number",
+     *                         example="1"
+     *                     ),
+     *                     @OA\Property(
+     *                         property="tipos_sanguineo_id",
+     *                         type="number",
+     *                         example="2"
+     *                     ),
+     *                     @OA\Property(
+     *                         property="signo_id",
+     *                         type="number",
+     *                         example="3"
+     *                     ),
+     *                     @OA\Property(
+     *                         property="cpf",
+     *                         type="number",
+     *                         example="12345678912"
+     *                     ),
+     *                     @OA\Property(
+     *                         property="nome",
+     *                         type="string",
+     *                         example="Wagner Ramos Lima"
+     *                     ),
+     *                     @OA\Property(
+     *                         property="email",
+     *                         type="string",
+     *                         example="wagner@yahoo.com.br"
+     *                     ),
+     *                     @OA\Property(
+     *                         property="telefone",
+     *                         type="string",
+     *                         example="79999590102"
+     *                     ),
+     *                     @OA\Property(
+     *                         property="resumo",
+     *                         type="string",
+     *                         example="Exemplo de texto para resumo."
+     *                     ),
+     *                     @OA\Property(
+     *                         property="data_nascimento",
+     *                         type="string",
+     *                         example="1986-06-14"
+     *                     ),
+     *                     @OA\Property(
+     *                         property="updated_at",
+     *                         type="string",
+     *                         example="2021-12-11T09:25:53.000000Z"
+     *                     ),
+     *                     @OA\Property(
+     *                         property="created_at",
+     *                         type="string",
+     *                         example="2021-12-11T09:25:53.000000Z"
+     *                     )
+     *                 )
+     *             )
+     *         )
+     *     )
+     * )
+     */
     public function index()
     {
         $pessoa = Pessoa::all();
@@ -37,6 +112,34 @@ class PessoaController extends Controller
     }
 
     /**
+     * Pega um perfil específico
+     * @OA\Get (
+     *     path="/api/v0/perfis/{id}",
+     *     tags={"Index"},
+     *     @OA\Parameter(
+     *         in="path",
+     *         name="id",
+     *         required=true,
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="success",
+     *         @OA\JsonContent(
+     *              @OA\Property(property="id", type="number", example=1),
+     *              @OA\Property(property="tipos_sanguineo_id", type="number", example="2"),
+     *              @OA\Property(property="signo_id", type="number", example="3"),
+     *              @OA\Property(property="cpf", type="string", example="content"),
+     *              @OA\Property(property="nome", type="string", example="Wagner Ramos Lima"),
+     *              @OA\Property(property="email", type="string", example="wagner@yahoo.com.br"),
+     *              @OA\Property(property="telefone", type="string", example="79999590102"),
+     *              @OA\Property(property="resumo", type="string", example="Exemplo de texto para resumo."),
+     *              @OA\Property(property="data_nascimento", type="string", example="1986-06-14"),
+     *              @OA\Property(property="updated_at", type="string", example="2021-12-11T09:25:53.000000Z"),
+     *              @OA\Property(property="created_at", type="string", example="2021-12-11T09:25:53.000000Z")
+     *         )
+     *     )
+     * )
      * @throws Exception
      */
     public function show($id)
@@ -62,6 +165,24 @@ class PessoaController extends Controller
     }
 
     /**
+     * Delete um perfil
+     * @OA\Delete (
+     *     path="/api/v0/perfis/{id}",
+     *     tags={"Index"},
+     *     @OA\Parameter(
+     *         in="path",
+     *         name="id",
+     *         required=true,
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="success",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="msg", type="string", example="Deletadp com sucesso")
+     *         )
+     *     )
+     * )
      * @throws Exception
      */
     public function destroy(int $id)
